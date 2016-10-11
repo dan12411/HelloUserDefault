@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     // 1. Generate a Array
-    //    var toDo = ["buy milk", "iOS test", "sleep", "make money"]
+        var toDo = ["buy milk", "iOS test", "sleep", "make money"]
     
     //////////////////////////////////////
     /// 如果怕拼錯Key 用static 變數!!!!!! ///
@@ -22,21 +22,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // 2. Save Array Data
-        //        UserDefaults.standard.set(toDo, forKey: "todo")
+                UserDefaults.standard.set(toDo, forKey: "todo")
         
-        //        UserDefaults.standard.synchronize()
+                UserDefaults.standard.synchronize()
         
         // 3. Get Array Data
         if let loadedToDo = UserDefaults.standard.object(forKey: "todo") as? [String] {
             print(loadedToDo)
-            
         }
         
         /// 如果資料是數字，也可以這樣做
         UserDefaults.standard.set(87, forKey: "yeah")
         UserDefaults.standard.synchronize()
         
-        UserDefaults.standard.integer(forKey: "yeah")
+        if let loadedToDo2 = UserDefaults.standard.integer(forKey: "yeah") as? Int {
+            print(loadedToDo2)
+        }
+        
     }
     
     
